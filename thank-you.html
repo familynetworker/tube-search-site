@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>You're In · Tube Search</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="spot"></div>
+
+<!-- STEP 3 OF THE FUNNEL: thank-you page. Deliver the gift, show the tour video, point to the plans. -->
+<main class="hero wrap" style="padding-block:40px 80px">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="wide" style="position:relative;z-index:2;display:grid;gap:40px">
+    <a class="logo" href="index.html" aria-label="Tube Search">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#F0479A" stroke-width="2"/><circle cx="16" cy="16" r="8" fill="none" stroke="#F0479A" stroke-opacity=".5" stroke-width="1.5"/><path class="sweep" d="M16 16 L16 2 A14 14 0 0 1 28 9 Z" fill="#F0479A" fill-opacity=".45"/><circle cx="22" cy="10" r="2.2" fill="#3DDC97"/></svg>
+      Tube Search
+    </a>
+
+    <div class="prose center" style="gap:22px">
+      <div class="check" role="img" aria-label="Done"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h1 data-words>You're in<span id="hiName"></span>. Your list is on its way.</h1>
+      <p class="lead" data-rv style="--d:.3s">Check your inbox in about a minute. If it's not there, look in Promotions or Spam and drag it to your main inbox so you get next week's list too.</p>
+    </div>
+
+    <div class="next" data-rv>
+      <div class="done"><span>STEP 1 · DONE ✓</span><h3>Grab your list</h3><p>This week's 10 breakout channels are in your inbox.</p></div>
+      <div><span>STEP 2 · 2 MINUTES</span><h3>Watch the tour</h3><p>See how the full app finds channels like these every week.</p></div>
+      <div><span>STEP 3</span><h3>Start your channel plan</h3><p>Pick your niche and plan your first video this week.</p></div>
+    </div>
+
+    <div class="col" style="max-width:900px;width:100%;display:grid;gap:22px">
+      <p class="center prose" data-rv>These 10 channels are only part of the picture. Tube Search tracks <b><span data-count="748">748</span> winning faceless channels</b>, scores <b>53 niches</b> and walks you from "no idea" to "first video posted" in 9 steps.</p>
+
+      <!-- TOUR VIDEO: paste the link into SETUP.tourVideo in assets/site.js -->
+      <div class="video" data-video="tourVideo" role="button" tabindex="0" aria-label="Play the 2-minute tour" data-rv="zoom">
+        <div class="video-in">
+          <div class="bars" aria-hidden="true"><i style="animation-delay:-.2s"></i><i style="animation-delay:-.9s"></i><i style="animation-delay:-.4s"></i><i style="animation-delay:-1.3s"></i><i style="animation-delay:-.7s"></i><i style="animation-delay:-1.1s"></i><i style="animation-delay:-.1s"></i><i style="animation-delay:-.6s"></i><i style="animation-delay:-1.4s"></i><i style="animation-delay:-.3s"></i><i style="animation-delay:-1s"></i><i style="animation-delay:-.5s"></i></div>
+          <div class="video-label">
+            <span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></span>
+            <strong>The 2-minute tour of Tube Search</strong>
+            <span>YOUR TOUR VIDEO GOES HERE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="center prose" data-rv style="gap:14px;margin-top:10px">
+        <a class="btn pulse" href="sales.html#pricing">See the plans<small>From $20 a month · cancel anytime</small></a>
+        <a href="sales.html" style="font-size:15px;color:var(--muted)">Or read the full story first</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="wrap"><div class="col" style="text-align:center">
+  <p>Tube Search is not affiliated with, endorsed by or sponsored by YouTube or Google.</p>
+  <p>© 2026 Craig Caron · <a href="#">Privacy policy</a> · <a href="#">Terms</a></p>
+</div></footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
