@@ -6,8 +6,12 @@ var SETUP = {
   salesVideo: '',
   // The 2-minute tour video on the thank-you page.
   tourVideo: '',
-  // Checkout links from your payment page (Stripe, ThriveCart, etc).
+  // Stripe Payment Links, one per plan (they start with https://buy.stripe.com/).
   checkout: { basic: '', pro: '', premiere: '' },
+  // Stripe customer portal login link (https://billing.stripe.com/...), where members cancel or update their card.
+  portal: '',
+  // Your members area login page (Squeezify), where members download the app.
+  membersArea: '',
   // Your email service's form address (MailerLite, Kit, etc).
   // Leave empty to test: the form then goes straight to the thank-you page.
   emailFormAction: ''
@@ -247,6 +251,12 @@ var SETUP = {
     var url = SETUP.checkout[a.dataset.buy];
     if(url) a.href = url;
     else a.addEventListener('click', function(e){ e.preventDefault(); toast('Checkout link for ' + a.dataset.buy + ' goes here. Paste it into SETUP in assets/site.js.') });
+  });
+  // member links: billing portal and members area
+  $$('[data-link]').forEach(function(a){
+    var url = SETUP[a.dataset.link];
+    if(url){ a.href = url; a.target = '_blank'; a.rel = 'noopener' }
+    else a.addEventListener('click', function(e){ e.preventDefault(); toast('This link goes here once it is pasted into SETUP in assets/site.js.') });
   });
 
   /* ---------- opt-in form ---------- */

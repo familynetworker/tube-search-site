@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Welcome to Tube Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* After-purchase page: one clear path (email, download, first step), in the sales page's look. */
+.plan-badge{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--mono);letter-spacing:.12em;color:#1B1200;background:var(--amber);border-radius:99px;padding:7px 16px}
+.unlocked{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;text-align:left}
+.unlocked span{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:15px;animation:foundIn .5s cubic-bezier(.2,.9,.3,1.3) both}
+.unlocked span::before{content:"✓";color:var(--mint);font-weight:800}
+.help{display:grid;gap:8px;text-align:center;font-size:15px;color:var(--muted)}
+.help a{color:var(--muted)}
+</style>
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="spot"></div>
+
+<main class="hero wrap" style="padding-block:40px 70px">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="wide" style="position:relative;z-index:2;display:grid;gap:40px">
+    <a class="logo" href="sales.html" aria-label="Tube Search">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="#F0479A" stroke-width="2"/><circle cx="16" cy="16" r="8" fill="none" stroke="#F0479A" stroke-opacity=".5" stroke-width="1.5"/><path class="sweep" d="M16 16 L16 2 A14 14 0 0 1 28 9 Z" fill="#F0479A" fill-opacity=".45"/><circle cx="22" cy="10" r="2.2" fill="#3DDC97"/></svg>
+      Tube Search
+    </a>
+
+    <div class="prose center" style="gap:20px">
+      <div class="check" role="img" aria-label="Payment received"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <span class="plan-badge" id="planBadge">YOU'RE A MEMBER</span>
+      <h1>Welcome to <em class="hl" id="planName">Tube Search</em>. Let's find your channel.</h1>
+      <p class="lead">Your payment went through. Here's exactly what to do next. It takes about 5 minutes to get set up.</p>
+    </div>
+
+    <div class="next" data-rv>
+      <div class="done"><span>STEP 1 · CHECK YOUR EMAIL</span><h3>Look for 2 emails</h3><p>Your receipt from Stripe, and your members area login from me. If you don't see them, check Promotions or Spam.</p></div>
+      <div><span>STEP 2 · DOWNLOAD</span><h3>Get the app</h3><p>Windows: download it from the members area. Mac, iPad or Chromebook: use the web version link in the members area.</p></div>
+      <div><span>STEP 3 · START</span><h3>Open My channel plan</h3><p>Click "Find my niche" on the left and answer 4 questions. You'll have your niche in about a minute.</p></div>
+    </div>
+
+    <div class="col" style="max-width:860px;width:100%;display:grid;gap:22px">
+      <h2 class="center" style="font-size:clamp(24px,3vw,34px)">What you just unlocked</h2>
+      <div class="unlocked" id="unlocked"></div>
+
+      <div class="center prose" data-rv style="gap:14px;margin-top:16px">
+        <a class="btn pulse" href="#" data-link="membersArea">Go to the members area<small>Download the app and start step 1</small></a>
+      </div>
+      <div class="help">
+        <p>Need to update your card, switch plans or cancel? <a href="#" data-link="portal">Manage my plan</a></p>
+        <p>Questions? Email me at [Contact email]. A real person answers.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="wrap"><div class="col" style="text-align:center">
+  <p>Tube Search is not affiliated with, endorsed by or sponsored by YouTube or Google.</p>
+  <p>© 2026 Craig Caron · <a href="#">Privacy policy</a> · <a href="#">Terms</a> · <a href="#">Refund policy</a></p>
+</div></footer>
+
+<script>
+(function(){
+  var PLANS = {
+    basic: { name:'Tube Search Basic', items:['My channel plan, all 9 steps','Niche scorecard, radar and quiz','New &amp; proven channel lists','Hot on YouTube and Rising topics','Viral ideas and the slot machine','Title &amp; thumbnail lab','Earnings calculator','30-day launch and weekly report'] },
+    pro: { name:'Tube Search Pro', items:['Everything in Basic','Video Launch Kit','Thumbnail Studio','Channel X-Ray and Blueprints','Sleep lists, Bend pool and DNA splicer','Live YouTube search','Comment-to-Video Machine','Channel Doctor and Sponsor Finder'] },
+    premiere: { name:'Tube Search Premiere', items:['Everything in Pro','The faceless YouTube channel course','2 live coaching calls with me every month','Book your calls inside the app'] }
+  };
+  var m = /[?&]plan=(basic|pro|premiere)\b/.exec(location.search), p = PLANS[m ? m[1] : 'pro'];
+  if(m){ document.getElementById('planName').textContent = p.name; document.getElementById('planBadge').textContent = 'YOU\'RE ON ' + m[1].toUpperCase() }
+  if(!m){ var u = document.getElementById('unlocked'); u.previousElementSibling.hidden = true; u.hidden = true; return }
+  document.getElementById('unlocked').innerHTML = p.items.map(function(t, i){ return '<span style="animation-delay:' + (.6 + i * .08) + 's">' + t + '</span>' }).join('');
+  document.title = 'Welcome to ' + p.name;
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
