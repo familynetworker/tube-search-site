@@ -50,9 +50,10 @@ html.lenis,html.lenis body{height:auto}
 /* ---------- sideways app tour ---------- */
 .htour{position:relative;padding-block:90px 70px;overflow:hidden}
 .ht-head{margin-bottom:40px}
+.ht-count{font:600 13px var(--mono);color:var(--muted)}
 .ht-head .wide{display:grid;gap:10px}
 .ht-track{display:flex;gap:28px;padding-inline:max(16px,calc((100vw - 1160px)/2));width:max-content;will-change:transform}
-.ht-card{margin:0;width:min(760px,78vw);display:grid;gap:14px}
+.ht-card{margin:0;width:min(640px,72vw);display:grid;gap:14px}
 .ht-card .shot{border-radius:18px}
 .ht-card img{aspect-ratio:16/10;object-fit:cover}
 .ht-card figcaption{display:grid;gap:4px;color:var(--muted);font-size:15px;max-width:560px}
