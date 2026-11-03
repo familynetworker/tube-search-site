@@ -255,13 +255,15 @@ var SETUP = {
     form.addEventListener('submit', function(e){
       var nm = $('#fname').value.trim(), em = $('#email').value.trim(), err = $('.err', form);
       if(!nm || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){ e.preventDefault(); err.hidden = false; err.textContent = !nm ? 'Add your first name so we know what to call you.' : 'That email doesn’t look right. Check it and try again.'; return }
-      store('tsName', nm);
+      store('tsName', nm); store('tsGift', form.dataset.gift || 'list');
       if(SETUP.emailFormAction){ form.action = SETUP.emailFormAction; form.method = 'post'; return }
       e.preventDefault();
-      var b = $('.btn', form); b.firstChild.textContent = 'Sending your list…';
+      var b = $('button[type=submit]', form); b.firstChild.textContent = form.dataset.sending || 'Sending your list…';
       setTimeout(function(){ location.href = 'thank-you.html' }, still ? 0 : 700);
     });
   }
+  var gift = store('tsGift');
+  if(gift && gift !== 'list') $$('[data-gift-text]').forEach(function(el){ el.textContent = el.dataset.giftText.replace('{gift}', gift) });
   var hi = $('#hiName'), nm2 = store('tsName');
   if(hi && nm2) hi.textContent = ', ' + nm2;
 

@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><!-- remove this line when the page is ready for Google -->
+<title>Find Your Faceless Niche in 60 Seconds</title>
+<meta name="description" content="Answer 4 quick questions and get the faceless YouTube niche you should start this week, matched against 1,115 real channels.">
+<meta property="og:title" content="Which faceless YouTube niche should you start? Take the 60-second quiz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Game-show quiz. Cobalt stage, yellow buzzer buttons, one card in the spotlight at a time. */
+:root{
+  --cobalt:#1632F0;   /* stage */
+  --deep:#0A1A9E;     /* shadows, card edges */
+  --ink:#08104A;      /* text on light */
+  --paper:#FFFFFF;
+  --sun:#FFE14D;      /* buttons, highlights */
+  --coral:#FF5A5F;    /* urgency, stickers */
+  --mint:#3DF2B0;     /* correct, money */
+  --display:"Archivo Black","Arial Black",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"Space Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--cobalt)}
+body{margin:0;background:var(--cobalt);color:var(--paper);font:17px/1.55 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--cobalt)}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.02;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+
+/* ---------- moving stage ---------- */
+.stage-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.burst{position:absolute;left:50%;top:42%;width:220vmax;height:220vmax;margin:-110vmax 0 0 -110vmax;
+  background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.07) 0 6deg,transparent 6deg 15deg);animation:spin 80s linear infinite;will-change:transform}
+@keyframes spin{to{transform:rotate(360deg)}}
+.glow{position:absolute;left:50%;top:40%;width:900px;height:900px;margin:-450px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,225,77,.35),transparent);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.15);opacity:.7}}
+.shape{position:absolute;will-change:transform}
+.shape svg{display:block;width:100%;height:100%}
+.s1{width:90px;left:6%;top:18%;animation:bob 6s ease-in-out infinite}
+.s2{width:70px;right:8%;top:14%;animation:bob 7s -2s ease-in-out infinite}
+.s3{width:110px;right:10%;bottom:14%;animation:bob 8s -1s ease-in-out infinite}
+.s4{width:60px;left:9%;bottom:20%;animation:bob 5s -3s ease-in-out infinite}
+.s5{width:44px;left:24%;top:8%;animation:bob 6.5s -4s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -22px;rotate:12deg}}
+
+/* tape strips */
+.tape{position:relative;z-index:3;background:var(--sun);color:var(--ink);overflow:hidden;font:400 15px var(--display);letter-spacing:.06em;padding-block:10px;border-block:3px solid var(--ink)}
+.tape.tilt{transform:rotate(-2deg) scale(1.04);margin-block:40px 10px}
+.tape-in{display:flex;gap:28px;width:max-content;animation:tape 26s linear infinite;white-space:nowrap}
+.tape.rev .tape-in{animation-direction:reverse}
+.tape-in span::after{content:"★";margin-left:28px;color:var(--coral)}
+@keyframes tape{to{transform:translateX(-50%)}}
+
+/* ---------- header + hero ---------- */
+main{position:relative;z-index:2}
+.top{display:flex;justify-content:center;padding-block:18px 0}
+.logo{display:inline-flex;align-items:center;gap:10px;font:400 18px var(--display);color:var(--paper);text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:9px;background:var(--sun);display:grid;place-items:center;box-shadow:0 4px 0 var(--deep)}
+.logo i::after{content:"";border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.hero{max-width:900px;margin:0 auto;text-align:center;display:grid;gap:18px;justify-items:center;padding-block:34px 10px}
+.sticker{display:inline-block;background:var(--coral);color:#fff;font:400 14px var(--display);letter-spacing:.06em;padding:8px 16px;border-radius:999px;transform:rotate(-4deg);box-shadow:0 5px 0 var(--deep);animation:wig 2.8s ease-in-out infinite}
+@keyframes wig{0%,80%,100%{transform:rotate(-4deg)}86%{transform:rotate(4deg) scale(1.08)}92%{transform:rotate(-6deg)}}
+.hero h1{font-size:clamp(34px,5.6vw,68px)}
+.hero h1 .y{color:var(--sun);display:inline-block}
+.hero h1 .u{position:relative;white-space:nowrap}
+.hero h1 .u svg{position:absolute;left:0;right:0;bottom:-.18em;width:100%;height:.3em;overflow:visible}
+.hero h1 .u path{fill:none;stroke:var(--coral);stroke-width:6;stroke-linecap:round;stroke-dasharray:400;stroke-dashoffset:400;animation:draw 1s 1.2s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .sub{font-size:clamp(17px,1.6vw,20px);max-width:640px;color:rgba(255,255,255,.88)}
+.hero .sub b{color:#fff}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font:700 13px var(--mono);color:rgba(255,255,255,.85)}
+.chips span::before{content:"✓ ";color:var(--mint)}
+
+/* ---------- quiz board ---------- */
+.board{position:relative;max-width:760px;margin:30px auto 0;perspective:1400px}
+.progress{display:flex;gap:6px;margin:0 auto 16px;max-width:420px}
+.progress i{flex:1;height:10px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}
+.progress i::after{content:"";position:absolute;inset:0;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.3,1.4,.5,1)}
+.progress i.on::after{transform:scaleX(1)}
+.card{position:relative;background:var(--paper);color:var(--ink);border-radius:28px;padding:clamp(22px,4vw,40px);box-shadow:0 14px 0 var(--deep),0 40px 80px -20px rgba(0,0,0,.5);transform-style:preserve-3d}
+.card[hidden]{display:none!important}
+.q-num{font:700 13px var(--mono);letter-spacing:.12em;color:var(--cobalt);text-transform:uppercase}
+.card h2{font-size:clamp(26px,3.4vw,40px);margin:8px 0 22px}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tiles.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tile{position:relative;display:grid;gap:6px;justify-items:start;text-align:left;padding:18px 16px;border-radius:18px;border:3px solid var(--ink);background:#fff;color:var(--ink);font:700 16px/1.25 var(--body);cursor:pointer;
+  box-shadow:0 6px 0 var(--ink);transition:transform .15s,box-shadow .15s,background .2s}
+.tile em{font-style:normal;font-size:30px;line-height:1}
+.tile small{font:500 13px/1.35 var(--body);color:#4a5280}
+.tile:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 10px 0 var(--ink);background:#FFF9D6}
+.tile:active,.tile.picked{transform:translateY(5px);box-shadow:0 1px 0 var(--ink);background:var(--sun)}
+.tile.picked::after{content:"✓";position:absolute;top:10px;right:12px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--sun);display:grid;place-items:center;font-weight:800;animation:popin .4s cubic-bezier(.3,1.8,.5,1)}
+@keyframes popin{from{transform:scale(0)}}
+.back{margin-top:18px;background:none;border:0;color:#4a5280;font:600 14px var(--body);cursor:pointer;text-decoration:underline}
+
+.start{text-align:center;display:grid;gap:14px;justify-items:center}
+.start h2{margin:0}
+.start p{color:#4a5280;max-width:460px}
+.buzz{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:2px;border:0;cursor:pointer;background:var(--sun);color:var(--ink);font:400 clamp(20px,2.4vw,26px) var(--display);padding:20px 40px;border-radius:999px;
+  box-shadow:0 8px 0 #C9A500,0 18px 40px -10px rgba(255,200,0,.8);transition:transform .12s,box-shadow .12s;letter-spacing:.02em}
+.buzz small{font:600 13px var(--body);letter-spacing:0;opacity:.8}
+.buzz:hover{transform:translateY(-3px)}
+.buzz:active{transform:translateY(6px);box-shadow:0 2px 0 #C9A500}
+.buzz::before{content:"";position:absolute;inset:-8px;border-radius:inherit;border:3px solid var(--sun);opacity:0;animation:ring 1.8s infinite}
+@keyframes ring{0%{opacity:.9;transform:scale(.95)}100%{opacity:0;transform:scale(1.25)}}
+
+/* analyzing */
+.scan{text-align:center;display:grid;gap:18px;justify-items:center;padding-block:10px}
+.dial{position:relative;width:150px;height:150px}
+.dial svg{width:100%;height:100%;transform:rotate(-90deg)}
+.dial circle{fill:none;stroke-width:12}
+.dial .bg{stroke:#E6E9FF}
+.dial .fg{stroke:var(--cobalt);stroke-linecap:round;stroke-dasharray:408;stroke-dashoffset:408}
+.dial b{position:absolute;inset:0;display:grid;place-items:center;font:400 34px var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.ticker{height:30px;overflow:hidden;font:700 15px var(--mono);color:var(--cobalt)}
+
+/* result */
+.res-top{display:grid;gap:8px;justify-items:center;text-align:center}
+.res-top .q-num{color:var(--coral)}
+.niche{font:400 clamp(34px,5.2vw,58px)/1 var(--display);color:var(--cobalt);text-transform:capitalize}
+.why{max-width:520px;color:#4a5280}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.stat{border:3px solid var(--ink);border-radius:18px;padding:14px;display:grid;gap:2px;box-shadow:0 5px 0 var(--ink);background:#F4F6FF}
+.stat strong{font:400 clamp(24px,2.8vw,32px)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font:600 12.5px/1.3 var(--body);color:#4a5280}
+.stat.m{background:#E3FFF4}
+.gift{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center;border-radius:20px;background:var(--ink);color:#fff;padding:20px;margin-bottom:18px}
+.box{width:86px;height:86px;position:relative;animation:jig 2.4s ease-in-out infinite}
+@keyframes jig{0%,70%,100%{transform:rotate(0)}76%{transform:rotate(-8deg)}82%{transform:rotate(8deg)}88%{transform:rotate(-4deg)}}
+.gift h3{font-size:20px;margin-bottom:6px}
+.gift ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:15px;color:rgba(255,255,255,.88)}
+.gift li::before{content:"★ ";color:var(--sun)}
+form{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#4a5280;display:grid;gap:5px}
+input{width:100%;font:600 17px var(--body);color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:14px;padding:14px;transition:box-shadow .15s}
+input:focus{outline:none;box-shadow:0 0 0 5px rgba(22,50,240,.25)}
+.go{width:100%;margin-top:4px}
+.fine{text-align:center;font-size:13px;color:#4a5280}
+.err{color:#D62828;font-weight:700;font-size:14px}
+
+/* below the board */
+.after{max-width:700px;margin:0 auto;padding-block:60px 30px;display:grid;gap:18px;font-size:18px}
+.after h2{font-size:clamp(26px,3.4vw,38px);color:var(--sun)}
+.after b{color:#fff}
+.after .ps{border-left:5px solid var(--sun);padding-left:16px}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-block:8px}
+.how div{background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);border-radius:20px;padding:18px;display:grid;gap:6px}
+.how b{font:400 40px/1 var(--display);color:var(--sun)}
+.how p{font-size:15px}
+footer{position:relative;z-index:2;padding-block:30px 40px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.7)}
+footer a{color:inherit}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:70}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;transition:.3s;background:var(--ink);color:#fff;border-radius:12px;padding:12px 18px;font-size:14px;z-index:80;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:700px){
+  .tiles,.tiles.two,.how{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}
+  .row{grid-template-columns:1fr}
+  .gift{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .shape{display:none}
+}
+@media (max-width:420px){.tiles,.how{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 .u path{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="stage-bg" aria-hidden="true">
+  <div class="burst"></div><div class="glow"></div>
+  <div class="shape s1" data-depth="30"><svg viewBox="0 0 100 100"><path d="M50 4l12 30 32 2-25 20 9 32-28-18-28 18 9-32L6 36l32-2z" fill="#FFE14D" stroke="#08104A" stroke-width="5" stroke-linejoin="round"/></svg></div>
+  <div class="shape s2" data-depth="-24"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="#FF5A5F" stroke="#08104A" stroke-width="6"/><path d="M40 32l28 18-28 18z" fill="#fff"/></svg></div>
+  <div class="shape s3" data-depth="40"><svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="22" fill="#3DF2B0" stroke="#08104A" stroke-width="6"/><text x="50" y="66" text-anchor="middle" font-family="Archivo Black,Arial Black" font-size="46" fill="#08104A">$</text></svg></div>
+  <div class="shape s4" data-depth="-36"><svg viewBox="0 0 100 100"><path d="M50 6c10 20 24 34 44 44-20 10-34 24-44 44C40 74 26 60 6 50 26 40 40 26 50 6z" fill="#fff" stroke="#08104A" stroke-width="6" stroke-linejoin="round"/></svg></div>
+  <div class="shape s5" data-depth="20"><svg viewBox="0 0 100 100"><text x="50" y="80" text-anchor="middle" font-family="Archivo Black,Arial Black" font-size="90" fill="#FFE14D" stroke="#08104A" stroke-width="5">?</text></svg></div>
+</div>
+
+<div class="tape" aria-hidden="true"><div class="tape-in"><span>FREE NICHE QUIZ</span><span>60 SECONDS</span><span>NO FACE NEEDED</span><span>MATCHED TO 1,115 REAL CHANNELS</span><span>FREE NICHE QUIZ</span><span>60 SECONDS</span><span>NO FACE NEEDED</span><span>MATCHED TO 1,115 REAL CHANNELS</span><span>FREE NICHE QUIZ</span><span>60 SECONDS</span><span>NO FACE NEEDED</span><span>MATCHED TO 1,115 REAL CHANNELS</span></div></div>
+
+<main class="wrap">
+  <div class="top"><a class="logo" href="#"><i></i>Tube Search</a></div>
+
+  <section class="hero">
+    <span class="sticker">FREE 60-SECOND QUIZ</span>
+    <h1 class="pop-words">Answer 4 quick questions and I'll tell you the <span class="y">faceless YouTube niche</span> you should <span class="u">start this week<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 14 Q 80 2 150 10 T 296 6"/></svg></span></h1>
+    <p class="sub">I'll match your answers against <b>1,115 real faceless channels</b> from this week's scan. You get your niche, what it pays, and the youngest channel already winning in it. Way faster than watching another "Top 10 Niches" video. (I timed it.)</p>
+    <div class="chips"><span>Free</span><span>No face on camera</span><span>Real channel data</span><span>Works for total beginners</span></div>
+  </section>
+
+  <section class="board" id="board" aria-live="polite">
+    <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+    <div class="card start" data-step="0">
+      <h2>Ready? Let's find your niche.</h2>
+      <p>4 questions. Tap the answer that sounds most like you. There are no wrong answers, only niches that fit you better.</p>
+      <button class="buzz" type="button" data-next>Start the quiz<small>Takes about 60 seconds</small></button>
+    </div>
+
+    <div class="card" data-step="1" data-q="fmt" hidden>
+      <span class="q-num">Question 1 of 4</span>
+      <h2>What kind of videos do you want to make?</h2>
+      <div class="tiles">
+        <button class="tile" type="button" data-v="LF"><em>🎬</em>Long videos<small>8 to 40 minutes. Fewer uploads, bigger pay per video.</small></button>
+        <button class="tile" type="button" data-v="SH"><em>⚡</em>Shorts<small>Under a minute. Quick to make, huge view counts.</small></button>
+        <button class="tile" type="button" data-v="SLEEP"><em>🌙</em>Sleep videos<small>Long, calm videos people play all night.</small></button>
+      </div>
+    </div>
+
+    <div class="card" data-step="2" data-q="topic" hidden>
+      <span class="q-num">Question 2 of 4</span>
+      <h2>Which of these could you talk about for hours?</h2>
+      <div class="tiles">
+        <button class="tile" type="button" data-v="history"><em>🏛️</em>History &amp; mysteries</button>
+        <button class="tile" type="button" data-v="science"><em>🚀</em>Science, space &amp; tech</button>
+        <button class="tile" type="button" data-v="crime"><em>🕵️</em>True crime &amp; real stories</button>
+        <button class="tile" type="button" data-v="mind"><em>🙏</em>Faith, mind &amp; motivation</button>
+        <button class="tile" type="button" data-v="world"><em>🌍</em>Nature, travel &amp; the planet</button>
+        <button class="tile" type="button" data-v="fun"><em>🍿</em>Movies, games &amp; celebrities</button>
+      </div>
+      <button class="back" type="button" data-back>Back</button>
+    </div>
+
+    <div class="card" data-step="3" data-q="time" hidden>
+      <span class="q-num">Question 3 of 4</span>
+      <h2>How much time can you give it each week?</h2>
+      <div class="tiles">
+        <button class="tile" type="button" data-v="low"><em>⏱️</em>2 to 4 hours<small>A side project for now.</small></button>
+        <button class="tile" type="button" data-v="mid"><em>📅</em>5 to 10 hours<small>A real commitment.</small></button>
+        <button class="tile" type="button" data-v="high"><em>🔥</em>10+ hours<small>I'm going all in.</small></button>
+      </div>
+      <button class="back" type="button" data-back>Back</button>
+    </div>
+
+    <div class="card" data-step="4" data-q="goal" hidden>
+      <span class="q-num">Question 4 of 4</span>
+      <h2>What matters most to you right now?</h2>
+      <div class="tiles">
+        <button class="tile" type="button" data-v="pay"><em>💰</em>The most money per view</button>
+        <button class="tile" type="button" data-v="fast"><em>📈</em>Getting views fast</button>
+        <button class="tile" type="button" data-v="easy"><em>😌</em>The easiest to start</button>
+      </div>
+      <button class="back" type="button" data-back>Back</button>
+    </div>
+
+    <div class="card scan" data-step="5" hidden>
+      <div class="dial"><svg viewBox="0 0 150 150"><circle class="bg" cx="75" cy="75" r="65"/><circle class="fg" cx="75" cy="75" r="65"/></svg><b id="pct">0%</b></div>
+      <h2 style="margin:0">Matching you to 76 niches…</h2>
+      <div class="ticker" id="scanName">History</div>
+    </div>
+
+    <div class="card" data-step="6" hidden>
+      <div class="res-top">
+        <span class="q-num">Your best match</span>
+        <div class="niche" id="rNiche">History</div>
+        <p class="why" id="rWhy"></p>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong id="rCount">0</strong><span>faceless channels winning in it right now</span></div>
+        <div class="stat m"><strong id="rPay">$0</strong><span id="rPayLbl">typical pay per 1,000 views</span></div>
+        <div class="stat"><strong id="rAge">0</strong><span id="rAgeLbl">days old: its youngest breakout channel</span></div>
+      </div>
+
+      <div class="gift">
+        <svg class="box" viewBox="0 0 100 100" aria-hidden="true"><rect x="12" y="40" width="76" height="52" rx="6" fill="#FF5A5F" stroke="#fff" stroke-width="4"/><rect x="6" y="28" width="88" height="18" rx="5" fill="#FFE14D" stroke="#fff" stroke-width="4"/><rect x="44" y="28" width="12" height="64" fill="#fff"/><path d="M50 28c-8-18-28-16-22-4 4 6 22 4 22 4zm0 0c8-18 28-16 22-4-4 6-22 4-22 4z" fill="#FFE14D" stroke="#fff" stroke-width="4"/></svg>
+        <div>
+          <h3>Get your free <span id="rGift">History</span> Starter Pack</h3>
+          <ul>
+            <li>5 brand-new channels in your niche to copy</li>
+            <li>10 video ideas that already went viral</li>
+            <li>Your first-30-days posting plan</li>
+          </ul>
+        </div>
+      </div>
+
+      <form id="optin" novalidate data-gift="Starter Pack" data-sending="Packing your Starter Pack…">
+        <input type="hidden" id="nicheField" name="fields[niche]" value="">
+        <div class="row">
+          <label for="fname">First name<input id="fname" name="fields[name]" autocomplete="given-name" placeholder="Your first name" required></label>
+          <label for="email">Email<input id="email" name="fields[email]" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        </div>
+        <p class="err" role="alert" hidden></p>
+        <button class="buzz go" type="submit">Send my Starter Pack<small>Free. It lands in your inbox in about a minute.</small></button>
+        <p class="fine">No spam, ever. Unsubscribe with one click.</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="tape tilt rev" aria-hidden="true"><div class="tape-in"><span>STOP GUESSING</span><span>PICK A NICHE THAT PAYS</span><span>COPY THE NEW KID</span><span>STOP GUESSING</span><span>PICK A NICHE THAT PAYS</span><span>COPY THE NEW KID</span><span>STOP GUESSING</span><span>PICK A NICHE THAT PAYS</span><span>COPY THE NEW KID</span></div></div>
+
+  <section class="after">
+    <h2>Why I made this quiz</h2>
+    <p>Hey, it's Craig. Here's the thing nobody tells you about faceless YouTube.</p>
+    <p>Most people don't fail because they're bad at making videos. They fail because they picked the wrong niche on day one. A niche that pays $1 per 1,000 views. Or one that's packed with channels that have a five-year head start.</p>
+    <p>So I built an app that scans <b>1,115 faceless channels</b> every week and spots the brand-new ones already winning. This quiz uses that same data to point you at a niche where <b>the door is still open</b>.</p>
+    <div class="how">
+      <div><b>1</b><p>Answer 4 questions about you and your time.</p></div>
+      <div><b>2</b><p>I match you against this week's real channels.</p></div>
+      <div><b>3</b><p>You get your niche, plus a free Starter Pack.</p></div>
+    </div>
+    <p class="ps"><b>P.S.</b> It's free and takes about 60 seconds. Worst case, you learn which niches to avoid. Best case, you find the one you've been looking for. <a href="#board" style="color:var(--sun);font-weight:700">Take the quiz now.</a></p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Figures come from the Tube Search scan of 2026-10-28. Pay rates are typical estimates, not a promise of earnings.</p>
+  <p>Tube Search is not affiliated with, endorsed by or sponsored by YouTube or Google.</p>
+  <p>© 2026 Craig Caron · <a href="#">Privacy policy</a> · <a href="#">Terms</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+/* Real niche data from the 2026-10-28 scan: [niche, channels winning, median RPM, youngest breakout age in days, its views a month] */
+var NICHES = {
+  LF: {
+    history: [['history',144,3.47,22,2964677],['paranormal',13,3.70,23,2972108],['myths and folktales',10,7.54,86,1692305]],
+    science: [['space & exploration',27,5.08,35,2148416],['future & discoveries',12,2.73,22,3868912],['engineering',8,3.54,34,2580030]],
+    crime:   [['crime',34,3.84,22,636516],['police bodycam',8,3.74,22,3793202],['life stories',15,2.62,47,1403928]],
+    mind:    [['christian prayer',9,8.49,46,958781],['psychology',17,3.53,36,739656],['stoicism',7,3.56,63,1249206]],
+    world:   [['travel documentary',22,3.65,25,2056279],['wildlife',11,2.46,26,3791384],['earth sciences',5,3.82,25,3624526]],
+    fun:     [['movies',10,4.73,49,1286683],['celebrity',11,4.09,43,726125],['video games',24,3.62,63,534485]]
+  },
+  SH: {
+    history: [['animation',15,0,13,98513968]], science: [['animation',15,0,13,98513968]],
+    crime: [['viral videos',5,0,44,84758042]], mind: [['humor & comedy',14,0,38,234373083]],
+    world: [['pets',11,0,40,127464232]], fun: [['movies',11,0,49,52747392]]
+  },
+  SLEEP: {
+    history: [['history',12,4.67,35,272116]], science: [['history',12,4.67,35,272116]], world: [['history',12,4.67,35,272116]],
+    crime: [['horror stories',9,3.20,49,409751]], fun: [['horror stories',9,3.20,49,409751]], mind: [['life stories',7,6.14,23,511684]]
+  }
+};
+var SCAN = ['history','crime','space & exploration','paranormal','christian prayer','psychology','travel documentary','wildlife','movies','engineering','stoicism','myths and folktales','police bodycam','earth sciences'];
+var WHY = {
+  fmt:{LF:'you want long videos (the best pay per view)',SH:'you want quick Shorts',SLEEP:'you like calm, long sleep videos'},
+  time:{low:'you have a few hours a week',mid:'you can give it 5 to 10 hours a week',high:'you\'re going all in'},
+  goal:{pay:'money per view matters most to you',fast:'you want views fast',easy:'you want the easiest start'}
+};
+</script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  var d=document, A={}, step=0, still=matchMedia('(prefers-reduced-motion: reduce)').matches, G=window.gsap;
+  var cards=[].slice.call(d.querySelectorAll('.card')), bars=[].slice.call(d.querySelectorAll('.progress i'));
+  function fmt(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e3?Math.round(n/1e3)+'K':String(n)}
+
+  /* headline words pop in */
+  (function(h){var i=0;(function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+    if(c.nodeType===3){var f=d.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){f.appendChild(d.createTextNode(t));return}
+      var s=d.createElement('span');s.className='pw';s.style.display='inline-block';s.textContent=t;f.appendChild(s)});c.parentNode.replaceChild(f,c)}
+    else if(c.nodeType===1&&c.tagName!=='svg')walk(c)})})(h);
+    if(G&&!still)G.from(h.querySelectorAll('.pw'),{y:60,rotate:function(){return(Math.random()-.5)*30},scale:.4,opacity:0,duration:.8,ease:'back.out(2)',stagger:.045,delay:.2});
+  })(d.querySelector('.pop-words'));
+  if(G&&!still){
+    G.from('.sticker',{scale:0,rotate:-40,duration:.7,ease:'back.out(3)'});
+    G.from('.hero .sub, .chips',{y:30,opacity:0,duration:.8,stagger:.15,delay:.9,ease:'power3.out'});
+    G.from('.board',{y:120,rotateX:35,opacity:0,duration:1.2,delay:1,ease:'expo.out'});
+  }
+
+  /* shapes follow the mouse a little */
+  if(matchMedia('(pointer:fine)').matches&&!still){
+    var sh=[].slice.call(d.querySelectorAll('.shape'));
+    addEventListener('pointermove',function(e){var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+      sh.forEach(function(s){var k=+s.dataset.depth;s.style.transform='translate('+(x*k).toFixed(1)+'px,'+(y*k).toFixed(1)+'px)'})},{passive:true});
+  }
+
+  function show(n){
+    var cur=cards[step], nx=cards[n], dir=n>step?1:-1; step=n;
+    bars.forEach(function(b,i){b.classList.toggle('on',i<Math.min(n,4)||n>=5)});
+    if(!G||still){cur.hidden=true;nx.hidden=false;return after(n)}
+    G.to(cur,{rotateY:-70*dir,x:-120*dir,opacity:0,duration:.35,ease:'power2.in',onComplete:function(){
+      cur.hidden=true;G.set(cur,{clearProps:'all'});nx.hidden=false;
+      G.fromTo(nx,{rotateY:70*dir,x:120*dir,opacity:0},{rotateY:0,x:0,opacity:1,duration:.6,ease:'back.out(1.4)',clearProps:'transform'});
+      var tl=nx.querySelectorAll('.tile');G.set(tl,{transition:'none'});
+      G.from(tl,{y:40,opacity:0,scale:.8,duration:.5,stagger:.06,delay:.15,ease:'back.out(2)',clearProps:'transform,opacity,transition'});
+      after(n);
+    }});
+  }
+  function after(n){ if(n===5)analyze(); if(n===6)reveal(); if(n>0&&n<5)scrollBoard() }
+  function scrollBoard(){var r=d.getElementById('board').getBoundingClientRect();if(r.top<0||r.top>innerHeight*.4)scrollTo({top:scrollY+r.top-20,behavior:'smooth'})}
+
+  d.querySelector('[data-next]').addEventListener('click',function(){show(1)});
+  cards.forEach(function(c){
+    c.querySelectorAll('.tile').forEach(function(t){t.addEventListener('click',function(e){
+      c.querySelectorAll('.tile').forEach(function(x){x.classList.remove('picked')});t.classList.add('picked');
+      A[c.dataset.q]=t.dataset.v; burst(e.clientX||innerWidth/2,e.clientY||innerHeight/2,18);
+      setTimeout(function(){show(step+1)},380);
+    })});
+    var b=c.querySelector('[data-back]'); if(b)b.addEventListener('click',function(){show(step-1)});
+  });
+
+  function pick(){
+    var list=(NICHES[A.fmt]||NICHES.LF)[A.topic]||NICHES.LF.history, best=list[0];
+    if(list.length>1){
+      if(A.goal==='pay')best=list.slice().sort(function(a,b){return b[2]-a[2]})[0];
+      else if(A.goal==='fast')best=list.slice().sort(function(a,b){return b[4]-a[4]})[0];
+      else best=list.slice().sort(function(a,b){return b[1]-a[1]})[0];
+    }
+    return best;
+  }
+  function analyze(){
+    var fg=d.querySelector('.dial .fg'), pct=d.getElementById('pct'), nm=d.getElementById('scanName'), t0=null, dur=still?10:2600, k=0;
+    var iv=setInterval(function(){nm.textContent=SCAN[k++%SCAN.length]},110);
+    (function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/dur);fg.style.strokeDashoffset=408*(1-p);pct.textContent=Math.round(p*100)+'%';
+      if(p<1)requestAnimationFrame(f);else{clearInterval(iv);setTimeout(function(){show(6)},250)}})(performance.now());
+  }
+  function count(el,to,pre,suf,dec){var t0=null;(function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1300),e=1-Math.pow(1-p,4);
+    el.textContent=pre+(to*e).toFixed(dec||0)+suf;if(p<1)requestAnimationFrame(f)})(performance.now())}
+  function reveal(){
+    var n=pick(); d.getElementById('rNiche').textContent=n[0]; d.getElementById('rGift').textContent=n[0].replace(/\b\w/g,function(c){return c.toUpperCase()});
+    d.getElementById('nicheField').value=n[0];
+    d.getElementById('rWhy').textContent='Because '+WHY.fmt[A.fmt]+', '+WHY.time[A.time]+', and '+WHY.goal[A.goal]+'. Here\'s what this niche looks like this week:';
+    count(d.getElementById('rCount'),n[1],'','');
+    if(n[2]>0)count(d.getElementById('rPay'),n[2],'$','',2);
+    else{d.getElementById('rPay').textContent=fmt(n[4]);d.getElementById('rPayLbl').textContent='views a month for its youngest breakout'}
+    count(d.getElementById('rAge'),n[3],'','');
+    d.getElementById('rAgeLbl').textContent='days old: its youngest breakout channel, now at '+fmt(n[4])+' views a month';
+    for(var i=0;i<4;i++)setTimeout(function(){burst(innerWidth*(.2+Math.random()*.6),innerHeight*.35,60)},i*220);
+    if(G&&!still){G.from('#rNiche',{scale:3,opacity:0,duration:.8,ease:'expo.out'});G.from('.stat',{y:50,rotate:function(i){return(i-1)*8},opacity:0,duration:.7,stagger:.12,delay:.3,ease:'back.out(2)'});
+      G.from('.gift',{y:40,opacity:0,duration:.7,delay:.7});G.from('#optin',{y:40,opacity:0,duration:.7,delay:.9})}
+    setTimeout(function(){var f=d.getElementById('fname');if(f&&matchMedia('(pointer:fine)').matches)f.focus({preventScroll:true})},1400);
+  }
+
+  /* confetti */
+  var cv=d.getElementById('fx'),cx=cv.getContext('2d'),P=[],run=false,cols=['#FFE14D','#FF5A5F','#3DF2B0','#ffffff','#08104A'];
+  function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+  function burst(x,y,n){if(still)return;for(var i=0;i<n;i++){var a=Math.random()*Math.PI*2,s=3+Math.random()*9;P.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-5,r:5+Math.random()*6,c:cols[i%5],a:Math.random()*6,va:(Math.random()-.5)*.4,l:1,t:i%3})}
+    if(!run){run=true;requestAnimationFrame(loop)}}
+  function loop(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(function(p){return p.l>0&&p.y<cv.height+30});
+    P.forEach(function(p){p.vy+=.22;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.a+=p.va;p.l-=.008;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.globalAlpha=Math.max(0,p.l);cx.fillStyle=p.c;
+      if(p.t===0)cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);else if(p.t===1){cx.beginPath();cx.arc(0,0,p.r/2.4,0,7);cx.fill()}else{cx.beginPath();cx.moveTo(0,-p.r/1.6);cx.lineTo(p.r/1.6,p.r/2);cx.lineTo(-p.r/1.6,p.r/2);cx.fill()}cx.restore()});
+    if(P.length)requestAnimationFrame(loop);else run=false}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex"><!-- remove this line when the page is ready for Google -->
+<title>The Viral Idea Jackpot</title>
+<meta name="description" content="Pull the lever and get a faceless YouTube video idea that already went viral. Then grab 30 more free.">
+<meta property="og:title" content="Pull the lever. Get a faceless video idea that already went viral.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Casino jackpot. Emerald felt, gold trim, a slot machine with chasing bulbs as the one big moment. */
+:root{
+  --felt:#06281F;     /* page */
+  --felt2:#0A3A2C;    /* raised panels */
+  --gold:#F7C948;     /* trim, buttons */
+  --gold2:#B8860B;    /* gold shadows */
+  --cream:#FFF4D6;    /* text */
+  --ruby:#E5383B;     /* lever, urgency */
+  --dim:#A9C4B6;      /* secondary text */
+  --display:"Bungee","Arial Black",system-ui,sans-serif;
+  --body:"Outfit","Segoe UI",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--felt)}
+body{margin:0;background:var(--felt);color:var(--cream);font:17px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#03140F}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.05;text-wrap:balance}
+p{margin:0}
+b{color:#fff}
+
+/* ---------- room ---------- */
+.room{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 0%,#0E4D3A 0%,var(--felt) 55%,#03140F 100%)}
+.room::after{content:"";position:absolute;inset:0;opacity:.18;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.beam{position:absolute;top:-30%;width:40vmax;height:160vmax;transform-origin:50% 0;background:linear-gradient(rgba(247,201,72,.22),transparent 70%);filter:blur(30px);will-change:transform}
+.beam.l{left:5%;animation:sweepL 9s ease-in-out infinite}
+.beam.r{right:5%;animation:sweepR 11s ease-in-out infinite}
+@keyframes sweepL{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(14deg)}}
+@keyframes sweepR{0%,100%{transform:rotate(28deg)}50%{transform:rotate(-16deg)}}
+.coin{position:absolute;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF1B8,var(--gold) 45%,var(--gold2));box-shadow:inset 0 0 0 3px rgba(184,134,11,.8);opacity:.5;animation:fall linear infinite}
+.coin::after{content:"$";position:absolute;inset:0;display:grid;place-items:center;font:400 16px var(--display);color:var(--gold2)}
+@keyframes fall{from{transform:translateY(-10vh) rotateY(0)}to{transform:translateY(115vh) rotateY(720deg)}}
+
+/* LED ticker */
+.led{position:relative;z-index:3;background:#000;border-bottom:3px solid var(--gold2);overflow:hidden;padding-block:9px}
+.led-in{display:flex;gap:56px;width:max-content;animation:led 70s linear infinite;font:700 14px var(--mono);letter-spacing:.06em;color:#FFB703;text-shadow:0 0 6px rgba(255,183,3,.9),0 0 18px rgba(255,120,0,.5);white-space:nowrap}
+.led-in span::before{content:"◆ ";color:var(--ruby)}
+@keyframes led{to{transform:translateX(-50%)}}
+
+main{position:relative;z-index:2}
+.top{display:flex;justify-content:center;padding-block:20px 0}
+.logo{font:400 16px var(--display);color:var(--gold);text-decoration:none;letter-spacing:.04em}
+
+/* hero */
+.hero{max-width:920px;margin:0 auto;text-align:center;display:grid;gap:16px;justify-items:center;padding-block:28px 6px}
+.kicker{font:700 13px var(--mono);letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.hero h1{font-size:clamp(32px,5.4vw,64px);color:var(--cream);text-shadow:0 4px 0 #021a13}
+.goldtxt{background:linear-gradient(100deg,#B8860B 0%,#F7C948 25%,#FFF6C7 40%,#F7C948 55%,#B8860B 80%,#F7C948 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gold 4s linear infinite;text-shadow:none}
+@keyframes gold{to{background-position:-250% 0}}
+.hero .sub{font-size:clamp(17px,1.6vw,20px);max-width:660px;color:var(--dim)}
+
+/* ---------- the machine ---------- */
+.machine-wrap{max-width:900px;margin:34px auto 0;perspective:1600px}
+.machine{position:relative;border-radius:34px;padding:22px;background:linear-gradient(180deg,#C99A2E,#7A5A10);box-shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 4px #3B2A05,inset 0 2px 0 rgba(255,255,255,.4)}
+.bulbs{position:absolute;inset:8px;border-radius:28px;pointer-events:none;
+  --b:radial-gradient(circle,#FFF6C7 0 3.5px,#F7C948 4.5px,transparent 6px);
+  background:var(--b) 0 0/26px 26px repeat-x,var(--b) 0 100%/26px 26px repeat-x,var(--b) 0 0/26px 26px repeat-y,var(--b) 100% 0/26px 26px repeat-y;
+  -webkit-mask:linear-gradient(#000 0 0);animation:chase .5s steps(2) infinite;filter:drop-shadow(0 0 6px #F7C948)}
+.bulbs.b2{animation-delay:-.25s;background-position:13px 0,13px 100%,0 13px,100% 13px;opacity:.55}
+@keyframes chase{50%{opacity:.25}}
+.machine.win .bulbs{animation-duration:.12s}
+.head{position:relative;text-align:center;margin:6px 0 16px}
+.head h2{font:400 clamp(26px,4vw,46px)/1 "Bungee Shade",var(--display);color:#FFF1B8;text-shadow:0 0 18px rgba(255,200,60,.7)}
+.head small{display:block;font:700 12px var(--mono);letter-spacing:.2em;color:#3B2A05;margin-top:4px}
+.panel{display:grid;grid-template-columns:minmax(0,1fr) 84px;gap:16px;align-items:center}
+.reels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr) minmax(0,1fr);gap:10px;background:#1A1206;border-radius:20px;padding:12px;box-shadow:inset 0 6px 20px rgba(0,0,0,.8)}
+.reel{position:relative;height:150px;overflow:hidden;border-radius:12px;background:linear-gradient(#e9dfc4,#fffdf5 30%,#fffdf5 70%,#e9dfc4);color:#1A1206}
+.reel::before,.reel::after{content:"";position:absolute;left:0;right:0;height:38px;z-index:2;pointer-events:none}
+.reel::before{top:0;background:linear-gradient(rgba(0,0,0,.45),transparent)}
+.reel::after{bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.45))}
+.reel .lbl{position:absolute;top:6px;left:0;right:0;text-align:center;z-index:3;font:700 10px var(--mono);letter-spacing:.16em;color:#7A5A10}
+.strip{position:absolute;left:0;right:0;top:0;will-change:transform}
+.cell{height:150px;display:grid;place-items:center;text-align:center;padding:18px 12px 10px;font:800 15px/1.25 var(--body)}
+.cell .em{font-size:34px;display:block;margin-bottom:4px}
+.r2 .cell{font:800 clamp(14px,1.7vw,19px)/1.25 var(--body)}
+.r3 .cell{font:400 clamp(22px,2.6vw,30px)/1 var(--display);color:var(--ruby)}
+.r3 .cell small{display:block;font:700 11px var(--mono);color:#7A5A10;margin-top:6px;letter-spacing:.06em}
+.spinning .strip{filter:blur(2px)}
+.payline{position:absolute;left:4px;right:4px;top:50%;height:3px;margin-top:-1.5px;background:rgba(229,56,59,.65);z-index:4;pointer-events:none;box-shadow:0 0 10px var(--ruby)}
+
+.lever{position:relative;height:220px;display:grid;justify-items:center;cursor:grab;touch-action:none;user-select:none}
+.lever .slot{position:absolute;bottom:0;width:46px;height:70px;border-radius:12px;background:linear-gradient(#3B2A05,#1A1206);box-shadow:inset 0 3px 8px rgba(0,0,0,.8)}
+.lever .arm{position:absolute;bottom:34px;width:12px;height:160px;border-radius:8px;background:linear-gradient(90deg,#8d8d8d,#f2f2f2,#8d8d8d);transform-origin:50% 100%}
+.lever .knob{position:absolute;top:-30px;left:50%;width:50px;height:50px;margin-left:-25px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff9a9b,var(--ruby) 50%,#8a1416);box-shadow:0 6px 16px rgba(0,0,0,.6)}
+.lever .hint{position:absolute;bottom:-26px;font:700 11px var(--mono);letter-spacing:.12em;color:#3B2A05;white-space:nowrap}
+
+.controls{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap}
+.spin{position:relative;border:0;cursor:pointer;font:400 clamp(20px,2.6vw,28px) var(--display);color:#3B2A05;padding:16px 46px;border-radius:999px;
+  background:linear-gradient(#FFF1B8,var(--gold) 45%,var(--gold2));box-shadow:0 8px 0 #5c4206,0 20px 40px -10px rgba(247,201,72,.8);transition:transform .1s,box-shadow .1s;overflow:hidden}
+.spin::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.8) 50%,transparent 65%);transform:translateX(-120%);animation:shine 2.6s ease-in-out infinite}
+@keyframes shine{0%,50%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+.spin:active{transform:translateY(6px);box-shadow:0 2px 0 #5c4206}
+.spin:disabled{filter:grayscale(.6);cursor:default}
+.left{font:700 13px var(--mono);color:#3B2A05;background:#FFF1B8;border-radius:999px;padding:7px 14px}
+
+/* result */
+.result{margin-top:18px;border-radius:22px;background:#0B2E23;border:2px solid var(--gold2);padding:22px;display:grid;gap:10px;min-height:120px}
+.result .tag{justify-self:start;font:700 11px var(--mono);letter-spacing:.14em;color:#3B2A05;background:var(--gold);border-radius:6px;padding:4px 9px}
+.result h3{font:800 clamp(21px,2.6vw,30px)/1.2 var(--body);color:#fff}
+.result p{color:var(--dim)}
+.proof{display:flex;flex-wrap:wrap;gap:10px 18px;font:700 14px var(--mono);color:var(--gold)}
+.proof span::before{content:"▲ ";color:#3DDC97}
+.result.idle h3{color:var(--dim);font-weight:600}
+
+/* ---------- vault form ---------- */
+.vault{max-width:900px;margin:36px auto 0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:center;border-radius:30px;padding:clamp(22px,4vw,38px);
+  background:linear-gradient(160deg,#0E4D3A,#082A20);border:2px solid var(--gold);box-shadow:0 0 0 6px rgba(247,201,72,.12),0 40px 100px -30px rgba(247,201,72,.45)}
+.vault.flash{animation:flash 1.2s ease}
+@keyframes flash{30%{box-shadow:0 0 0 14px rgba(247,201,72,.4),0 40px 120px -20px rgba(247,201,72,.9)}}
+.safe{position:relative;aspect-ratio:1;max-width:280px;width:100%;margin:0 auto}
+.safe .door{position:absolute;inset:0;border-radius:28px;background:linear-gradient(145deg,#d8b55a,#8a6510);box-shadow:inset 0 0 0 6px #5c4206,0 20px 40px rgba(0,0,0,.5)}
+.safe .dial{position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;margin:-23% 0 0 -23%;border-radius:50%;background:radial-gradient(circle,#FFF1B8 0 18%,#b8860b 19% 24%,#3B2A05 25% 27%,#d8b55a 28%);box-shadow:0 6px 14px rgba(0,0,0,.5);animation:dial 6s cubic-bezier(.6,0,.4,1) infinite}
+.safe .dial::before{content:"";position:absolute;inset:6%;border-radius:50%;background:repeating-conic-gradient(#3B2A05 0 2deg,transparent 2deg 15deg);-webkit-mask:radial-gradient(circle,transparent 62%,#000 63%);mask:radial-gradient(circle,transparent 62%,#000 63%)}
+@keyframes dial{0%{transform:rotate(0)}30%{transform:rotate(200deg)}55%{transform:rotate(80deg)}80%,100%{transform:rotate(360deg)}}
+.safe .num{position:absolute;right:-12px;top:-12px;width:78px;height:78px;border-radius:50%;background:var(--ruby);color:#fff;display:grid;place-items:center;text-align:center;font:400 13px/1.05 var(--display);transform:rotate(12deg);box-shadow:0 8px 20px rgba(0,0,0,.4);animation:throb 1.6s ease-in-out infinite}
+@keyframes throb{50%{transform:rotate(12deg) scale(1.1)}}
+.vault h2{font-size:clamp(24px,3vw,36px);color:var(--gold)}
+.vault ul{margin:12px 0 18px;padding:0;list-style:none;display:grid;gap:8px}
+.vault li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px}
+.vault li::before{content:"✦";color:var(--gold)}
+form{display:grid;gap:10px}
+label{display:grid;gap:5px;font:700 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+input{width:100%;font:600 17px var(--body);color:#fff;background:#03140F;border:2px solid #2E5E4E;border-radius:14px;padding:14px;transition:border-color .2s,box-shadow .2s}
+input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(247,201,72,.25)}
+form .spin{width:100%;font-size:clamp(17px,2vw,22px);padding:16px 18px;display:flex;flex-direction:column;align-items:center}
+form .spin small{font:600 12.5px var(--body);color:#5c4206}
+.fine{text-align:center;font-size:13px;color:var(--dim)}
+.err{color:#FF8A8A;font-weight:700;font-size:14px}
+
+/* story */
+.story{max-width:700px;margin:0 auto;padding-block:70px 30px;display:grid;gap:18px;font-size:18px}
+.story h2{font-size:clamp(24px,3.2vw,36px);color:var(--gold)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-block:6px}
+.cards div{border-radius:18px;background:var(--felt2);border:1px solid #1E5444;padding:18px;display:grid;gap:4px}
+.cards strong{font:400 34px/1 var(--display);color:var(--gold)}
+.cards span{font-size:14px;color:var(--dim)}
+.ps{border-left:4px solid var(--gold);padding-left:16px;color:var(--dim)}
+footer{position:relative;z-index:2;text-align:center;padding-block:30px 40px;font-size:12.5px;color:var(--dim)}
+footer a{color:inherit}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:70}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,40px);opacity:0;transition:.3s;background:#000;border:1px solid var(--gold);color:#fff;border-radius:12px;padding:12px 18px;font-size:14px;z-index:80;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:760px){
+  .panel{grid-template-columns:1fr}
+  .lever{display:none}
+  .reels{grid-template-columns:1fr 1fr}
+  .r2{grid-column:1/-1;order:-1}
+  .reel{height:120px}.cell{height:120px}
+  .vault{grid-template-columns:1fr}
+  .safe{max-width:180px}
+  .cards{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="room" aria-hidden="true"><div class="beam l"></div><div class="beam r"></div><div id="coins"></div></div>
+
+<div class="led" aria-hidden="true"><div class="led-in" id="led"></div></div>
+
+<main class="wrap">
+  <div class="top"><a class="logo" href="#">★ TUBE SEARCH ★</a></div>
+
+  <section class="hero">
+    <span class="kicker">The Viral Idea Jackpot · free to play</span>
+    <h1 id="h1">Pull the lever. Get a faceless video idea that <span class="goldtxt">already went viral.</span></h1>
+    <p class="sub">Every idea in this machine is backed by a real faceless video that crushed its channel's normal views. Spin it. It's free. (Fair warning: it's a little addictive.)</p>
+  </section>
+
+  <section class="machine-wrap">
+    <div class="machine" id="machine">
+      <div class="bulbs"></div><div class="bulbs b2"></div>
+      <div class="head"><h2>JACKPOT</h2><small>16 NICHES · REAL PROOF ON EVERY IDEA</small></div>
+      <div class="panel">
+        <div class="reels" id="reels">
+          <div class="reel r1"><span class="lbl">NICHE</span><div class="strip"></div></div>
+          <div class="reel r2"><span class="lbl">VIDEO IDEA</span><div class="strip"></div></div>
+          <div class="reel r3"><span class="lbl">PROOF</span><div class="strip"></div></div>
+          <div class="payline" style="display:none"></div>
+        </div>
+        <div class="lever" id="lever" role="button" tabindex="0" aria-label="Pull the lever to spin"><div class="slot"></div><div class="arm"><div class="knob"></div></div><span class="hint">PULL ME</span></div>
+      </div>
+      <div class="controls"><button class="spin" id="spin" type="button">SPIN!</button><span class="left" id="left">3 free spins</span></div>
+      <div class="result idle" id="result" aria-live="polite">
+        <span class="tag">YOUR IDEA</span>
+        <h3>Hit SPIN (or pull the lever) to get your first idea.</h3>
+      </div>
+    </div>
+  </section>
+
+  <section class="vault" id="vault">
+    <div class="safe" aria-hidden="true"><div class="door"></div><div class="dial"></div><div class="num">30<br>FREE<br>IDEAS</div></div>
+    <div>
+      <h2 id="vTitle">Want 30 more ideas like these?</h2>
+      <p style="color:var(--dim)">Get <b>The Viral Vault</b> free: 30 faceless video ideas that already went viral, with the proof for every one.</p>
+      <ul>
+        <li>The real video behind each idea, and how many times its usual views it got</li>
+        <li>A ready-to-use title and angle, so it's your video, not a copy</li>
+        <li>Ideas across 16 niches, so there's something for yours</li>
+      </ul>
+      <form id="optin" novalidate data-gift="Viral Vault" data-sending="Opening the Vault…">
+        <label for="fname">First name<input id="fname" name="fields[name]" autocomplete="given-name" placeholder="Your first name" required></label>
+        <label for="email">Email<input id="email" name="fields[email]" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <p class="err" role="alert" hidden></p>
+        <button class="spin" type="submit">Open the Vault<small>Free. Sent to your inbox in about a minute.</small></button>
+        <p class="fine">No spam. Unsubscribe anytime with one click.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="story">
+    <h2>Why these ideas work (and most don't)</h2>
+    <p>Hey, it's Craig. Here's something most people get backwards.</p>
+    <p>They think good YouTube ideas come from "being creative." Sitting there with a coffee, waiting for inspiration. That's the slowest way there is.</p>
+    <p>The fast way is boring: <b>find videos that already beat their channel's normal views by a mile</b>, then make your own version. YouTube already showed you what people want. You just have to listen.</p>
+    <div class="cards">
+      <div><strong>1,115</strong><span>faceless channels my app scans every week</span></div>
+      <div><strong>16</strong><span>niches in this machine, one proven idea each</span></div>
+      <div><strong>5,889×</strong><span>the biggest proof in here: a video that beat its channel's usual views by that much</span></div>
+    </div>
+    <p>That's what's inside this machine, and that's what's inside the Vault. No guessing. Every idea has a receipt.</p>
+    <p class="ps"><b>P.S.</b> You've got 3 free spins. Use them. Then grab the Vault, because 30 ideas is about 6 months of videos if you post once a week. <a href="#vault" style="color:var(--gold);font-weight:700">Get the Vault free.</a></p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Ideas and proof come from the Tube Search scan of 2026-10-28. Past views are not a promise of future results.</p>
+  <p>Tube Search is not affiliated with, endorsed by or sponsored by YouTube or Google.</p>
+  <p>© 2026 Craig Caron · <a href="#">Privacy policy</a> · <a href="#">Terms</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  /* Real ideas from the app: [niche, emoji, title, angle, times its channel's usual views, views] */
+  var IDEAS = [
+    ['Ancient history','🏛️','What Did Ancient Romans Actually Do on a Day Off?','Walk through a full day of leisure in ancient Rome: baths, games, food and gossip, shown hour by hour.',754,374152],
+    ['True crime','🕵️','Breaking Case Update: What the New Evidence Shows','Fast, factual recaps of a trending case as new court filings and evidence come out.',555,116227],
+    ['Mysteries','🔮','Why This Corner of Europe Is the Most Mysterious Land in History','The odd sites, legends and history packed into one overlooked region.',184,120407],
+    ['Dark stories','🕯️','The Abandoned Child Who Was Secretly Royal','Long narrated fantasy with a hidden-identity twist.',1195,114708],
+    ['Psychology','🧠','People Who Push in Their Chair When They Leave Have These 3 Traits','Decode a tiny everyday habit and what research links it to.',439,1096421],
+    ['Space & science','🚀','James Webb Pointed at an Empty Patch of Sky. Here’s What It Saw','Deep-field images explained: thousands of galaxies in a spot that looked empty.',376,123828],
+    ['Military history','🎖️','10 Lucky Accidents That Changed the Outcome of WWII','Coincidences and mistakes that decided major battles.',915,770219],
+    ['Money','💰','Rockefeller’s 4 Rules for Getting Rich (Still Work Today)','Lessons from a famous fortune, translated into modern habits.',1861,137722],
+    ['Health','💪','A Year of Walking vs. a Year of Swimming: What Actually Changes','A research-based look at what each habit does to your body over 12 months.',2379,798131],
+    ['Self improvement','📈','10 Years of Self-Improvement Lessons in 5 Minutes','Fast, no-fluff lessons, each one a single sentence plus an example.',1005,131665],
+    ['Life stories','💬','She Laughed at Him in Front of Everyone. 5 Years Later…','A glow-up reversal story with an emotional reunion.',148,138301],
+    ['Maps','🗺️','What If Earth Spun Backwards? The Map Would Look Terrifying','A what-if climate map showing how deserts, rain and seasons would flip.',90,221366],
+    ['Nature','🦁','Life Along a Single River in Kruger Park','A peaceful place-based documentary following one river’s wildlife.',479,526942],
+    ['Tech & AI','💻','The Entire History of the Internet in 15 Minutes','A fast, clear timeline from the first message to today.',1441,123939],
+    ['Megaprojects','🏗️','How Tokyo Built a Giant Underground Cathedral to Stop Floods','Inside a hidden megaproject and how it actually works.',879,1406918],
+    ['Gaming','🎮','The Biggest Cheating Scandal in Gaming','Retell a famous gaming controversy like a true crime case: the claim, the evidence and the reveal.',5889,1772713]
+  ];
+  var d=document, G=window.gsap, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(n){return n>=1e6?(n/1e6).toFixed(1)+'M':Math.round(n/1e3)+'K'}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+
+  /* LED ticker */
+  var h=IDEAS.map(function(i){return '<span>'+esc(i[2])+'  ·  '+i[4].toLocaleString('en-US')+'× USUAL VIEWS</span>'}).join('');
+  d.getElementById('led').innerHTML=h+h;
+
+  /* falling coins */
+  if(!still){var cw=d.getElementById('coins');for(var c=0;c<14;c++){var e=d.createElement('i');e.className='coin';e.style.left=(Math.random()*100)+'%';e.style.animationDuration=(9+Math.random()*12)+'s';e.style.animationDelay=(-Math.random()*20)+'s';e.style.scale=(.5+Math.random()*.8).toFixed(2);cw.appendChild(e)}}
+
+  /* reels: each strip repeats the ideas so it can spin a long way */
+  var REP=6, CELL=function(){return d.querySelector('.reel').offsetHeight}, reels=[].slice.call(d.querySelectorAll('.reel'));
+  function cell(k,i){var x=IDEAS[i];if(k===0)return '<div class="cell"><div><span class="em">'+x[1]+'</span>'+esc(x[0])+'</div></div>';
+    if(k===1)return '<div class="cell">'+esc(x[2])+'</div>';return '<div class="cell"><div>'+x[4].toLocaleString('en-US')+'×<small>USUAL VIEWS</small></div></div>'}
+  var order=IDEAS.map(function(_,i){return i});
+  reels.forEach(function(r,k){var s='';for(var n=0;n<REP;n++)order.forEach(function(i){s+=cell(k,i)});r.querySelector('.strip').innerHTML=s});
+  var pos=[0,0,0];
+
+  /* headline entrance */
+  if(G&&!still){
+    G.from('.kicker',{y:-30,opacity:0,duration:.6});
+    G.from('#h1',{scale:.6,opacity:0,duration:1,ease:'elastic.out(1,.6)',delay:.15});
+    G.from('.hero .sub',{y:30,opacity:0,duration:.8,delay:.6});
+    G.from('#machine',{y:200,rotateX:40,opacity:0,duration:1.4,ease:'expo.out',delay:.5});
+    G.from('#vault',{y:80,opacity:0,duration:1,delay:1.1,ease:'power3.out'});
+  }
+
+  var left=3, busy=false, spins=0, used=[];
+  var btn=d.getElementById('spin'), lv=d.getElementById('lever'), arm=lv.querySelector('.arm'), res=d.getElementById('result'), mach=d.getElementById('machine');
+  function choose(){var pool=order.filter(function(i){return used.indexOf(i)<0});var i=pool[Math.floor(Math.random()*pool.length)];used.push(i);return i}
+  function spin(){
+    if(busy)return;
+    if(left<=0){goVault('Out of spins! Here are 30 more ideas, free:');return}
+    busy=true;left--;spins++;btn.disabled=true;mach.classList.remove('win');
+    d.getElementById('left').textContent=left+(left===1?' free spin left':' free spins left');
+    var target=choose(), H=CELL(), N=IDEAS.length;
+    if(G&&!still){G.timeline().to(arm,{rotate:28,duration:.18,ease:'power2.in'}).to(arm,{rotate:0,duration:.6,ease:'elastic.out(1,.4)'})}
+    d.getElementById('reels').classList.add('spinning');
+    reels.forEach(function(r,k){
+      var strip=r.querySelector('.strip'), loops=2+k, idx=(target), end=(loops*N+idx);
+      var from=pos[k]%N; if(G&&!still){G.set(strip,{y:-from*H})}
+      var dur=still?0:1.4+k*.55;
+      if(G&&!still)G.to(strip,{y:-end*H,duration:dur,ease:'back.out(.7)',onComplete:function(){G.set(strip,{y:-idx*H});pos[k]=idx;if(k===2)land(target)}});
+      else{strip.style.transform='translateY('+(-idx*H)+'px)';pos[k]=idx;if(k===2)land(target)}
+    });
+  }
+  function land(i){
+    var x=IDEAS[i];busy=false;btn.disabled=false;d.getElementById('reels').classList.remove('spinning');
+    mach.classList.add('win');setTimeout(function(){mach.classList.remove('win')},1500);
+    res.classList.remove('idle');
+    res.innerHTML='<span class="tag">'+esc(x[0]).toUpperCase()+'</span><h3>'+esc(x[2])+'</h3><p>'+esc(x[3])+'</p>'
+      +'<div class="proof"><span>A video like this got '+x[4].toLocaleString('en-US')+'× its channel\'s usual views</span><span>'+fmt(x[5])+' views</span></div>';
+    if(G&&!still){G.from(res.children,{y:20,opacity:0,stagger:.08,duration:.5,ease:'back.out(2)'})}
+    coins(innerWidth/2,(mach.getBoundingClientRect().top+200),90);
+    btn.textContent=left>0?'SPIN AGAIN!':'GET 30 MORE';
+    if(spins===1)setTimeout(function(){goVault('You just got 1 viral idea. Want 30 more like it?',true)},1700);
+    if(left===0)setTimeout(function(){goVault('That was your last free spin. Want the other 30?',true)},1900);
+  }
+  function goVault(title,soft){
+    d.getElementById('vTitle').textContent=title;var v=d.getElementById('vault');v.classList.remove('flash');void v.offsetWidth;v.classList.add('flash');
+    if(!soft){v.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(function(){d.getElementById('fname').focus({preventScroll:true})},700)}
+  }
+  btn.addEventListener('click',function(){if(left<=0&&!busy){goVault('Here are 30 more ideas, free:');return}spin()});
+  lv.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}});
+  /* drag the lever down to spin */
+  var y0=null;
+  lv.addEventListener('pointerdown',function(e){y0=e.clientY;lv.setPointerCapture(e.pointerId)});
+  lv.addEventListener('pointermove',function(e){if(y0===null)return;var dy=Math.max(0,Math.min(120,e.clientY-y0));arm.style.transform='rotate('+(dy/120*30)+'deg)'});
+  lv.addEventListener('pointerup',function(e){if(y0===null)return;var dy=e.clientY-y0;y0=null;arm.style.transform='';if(dy>40||Math.abs(dy)<6)spin()});
+
+  /* gold coin burst */
+  var cv=d.getElementById('fx'),cx=cv.getContext('2d'),P=[],run=false;
+  function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+  function coins(x,y,n){if(still)return;for(var i=0;i<n;i++){var a=-Math.PI/2+(Math.random()-.5)*2.2,s=7+Math.random()*12;P.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,r:8+Math.random()*8,f:Math.random()*6,vf:.1+Math.random()*.25,l:1})}
+    if(!run){run=true;requestAnimationFrame(loop)}}
+  function loop(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(function(p){return p.l>0&&p.y<cv.height+40});
+    P.forEach(function(p){p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.vx*=.99;p.f+=p.vf;p.l-=.006;var w=Math.abs(Math.cos(p.f))*p.r;
+      cx.save();cx.globalAlpha=Math.max(0,p.l);cx.translate(p.x,p.y);var g=cx.createRadialGradient(-w/3,-p.r/3,1,0,0,p.r);g.addColorStop(0,'#FFF1B8');g.addColorStop(.5,'#F7C948');g.addColorStop(1,'#B8860B');
+      cx.fillStyle=g;cx.beginPath();cx.ellipse(0,0,Math.max(1,w),p.r,0,0,7);cx.fill();cx.restore()});
+    if(P.length)requestAnimationFrame(loop);else run=false}
+  d.getElementById('optin').addEventListener('submit',function(e){if(!e.defaultPrevented||d.querySelector('.err').hidden)coins(innerWidth/2,innerHeight*.6,120)});
+  addEventListener('resize',function(){var H=CELL();reels.forEach(function(r,k){var s=r.querySelector('.strip');if(G)G.set(s,{y:-pos[k]*H});else s.style.transform='translateY('+(-pos[k]*H)+'px)'})});
+})();
+</script>
+</body>
+</html>
