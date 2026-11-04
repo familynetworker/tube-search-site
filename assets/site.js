@@ -7,11 +7,15 @@ var SETUP = {
   // The 2-minute tour video on the thank-you page.
   tourVideo: '',
   // Stripe Payment Links, one per plan (they start with https://buy.stripe.com/).
-  checkout: { basic: '', pro: '', premiere: '' },
-  // Stripe customer portal login link (https://billing.stripe.com/...), where members cancel or update their card.
-  portal: '',
-  // Your members area login page (Squeezify), where members download the app.
-  membersArea: '',
+  checkout: {
+    basic: 'https://buy.stripe.com/cNibJ196O8Gyc8A3NP4ZG01',
+    pro: 'https://buy.stripe.com/14A4gz96O8Gy8Wo7014ZG02',
+    premiere: 'https://buy.stripe.com/cNi28r2Iq7Cu7Sk5VX4ZG03'
+  },
+  // Where members manage their plan (update card, switch plans, cancel): their members area.
+  portal: 'https://tubesearch-members.tubesearch.workers.dev/login',
+  // Your members area sign-in page, where members get their key and download the app.
+  membersArea: 'https://tubesearch-members.tubesearch.workers.dev/login',
   // Your email service's form address (MailerLite, Kit, etc).
   // Leave empty to test: the form then goes straight to the thank-you page.
   emailFormAction: ''
